@@ -8,6 +8,8 @@
 #ifndef UtilsHeader_h
 #define UtilsHeader_h
 
+#include <malloc/_malloc.h>
+#include <stdlib.h>
 
 typedef int Status;
 #define OK 1

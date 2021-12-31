@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		2454153C277C813400DFC18E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2454153B277C813400DFC18E /* main.m */; };
 		24541551277D594600DFC18E /* Triplet.m in Sources */ = {isa = PBXBuildFile; fileRef = 24541550277D594600DFC18E /* Triplet.m */; };
+		2454155F277DA1BB00DFC18E /* LineList.m in Sources */ = {isa = PBXBuildFile; fileRef = 2454155E277DA1BB00DFC18E /* LineList.m */; };
+		24807EBD277DD4F800DEF80A /* LineSqList.m in Sources */ = {isa = PBXBuildFile; fileRef = 24807EBC277DD4F800DEF80A /* LineSqList.m */; };
+		24D1953B277EAF8E0084743B /* LinkList.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D1953A277EAF8E0084743B /* LinkList.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,6 +39,11 @@
 		24541554277D59C100DFC18E /* UtilsHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UtilsHeader.h; sourceTree = "<group>"; };
 		24541557277D891F00DFC18E /* 1-9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1-9.png"; sourceTree = "<group>"; };
 		24541558277D8C6C00DFC18E /* 1-10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1-10.png"; sourceTree = "<group>"; };
+		2454155A277D8F6B00DFC18E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		2454155E277DA1BB00DFC18E /* LineList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LineList.m; sourceTree = "<group>"; };
+		24807EBC277DD4F800DEF80A /* LineSqList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LineSqList.m; sourceTree = "<group>"; };
+		24D19537277DD7AD0084743B /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
+		24D1953A277EAF8E0084743B /* LinkList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LinkList.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +78,7 @@
 		2454153A277C813400DFC18E /* DataStructure */ = {
 			isa = PBXGroup;
 			children = (
+				24541559277D8F4500DFC18E /* 第二章线性表 */,
 				24541545277C816B00DFC18E /* 第一章绪论 */,
 				2454153B277C813400DFC18E /* main.m */,
 			);
@@ -105,6 +114,18 @@
 				24541554277D59C100DFC18E /* UtilsHeader.h */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		24541559277D8F4500DFC18E /* 第二章线性表 */ = {
+			isa = PBXGroup;
+			children = (
+				2454155A277D8F6B00DFC18E /* README.md */,
+				24D19537277DD7AD0084743B /* assets */,
+				2454155E277DA1BB00DFC18E /* LineList.m */,
+				24807EBC277DD4F800DEF80A /* LineSqList.m */,
+				24D1953A277EAF8E0084743B /* LinkList.m */,
+			);
+			path = "第二章线性表";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,7 +185,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				24541551277D594600DFC18E /* Triplet.m in Sources */,
+				24807EBD277DD4F800DEF80A /* LineSqList.m in Sources */,
+				2454155F277DA1BB00DFC18E /* LineList.m in Sources */,
 				2454153C277C813400DFC18E /* main.m in Sources */,
+				24D1953B277EAF8E0084743B /* LinkList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

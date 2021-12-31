@@ -3,4 +3,22 @@
    uuid = "D9E8B29E-9AA8-4296-9F38-2A445D6EE5E6"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "79C95A56-37B2-4627-8ACB-DB0A111B601D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DataStructure/&#x7b2c;&#x4e8c;&#x7ae0;&#x7ebf;&#x6027;&#x8868;/LineSqList.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
+            landmarkName = "mergeList_sq(la, lb, lc)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

@@ -7,8 +7,7 @@
 
 #include <stdio.h>
 #include "UtilsHeader.h"
-#include <malloc/_malloc.h>
-#include <stdlib.h>
+
 
 typedef int *Triplet;
 
@@ -24,8 +23,8 @@ Status InitTriplet(Triplet *T,int v1, int v2, int v3) {
     return OK;
 }
 
-Status destroyTriplet(Triplet T) {
-    free(T);
+Status destroyTriplet(Triplet *T) {
+    free(*T);
     return OK;
 }
 
@@ -64,7 +63,7 @@ Status Min(Triplet T,int *e) {
 }
 
 
-__attribute__((constructor))
+//__attribute__((constructor))
 static void beforeMain(void) {
     Triplet a;
     InitTriplet(&a, 1, 3, 2);
@@ -80,5 +79,5 @@ static void beforeMain(void) {
     printf("%d\n",e);
     Min(a,&e);
     printf("%d\n",e);
-    destroyTriplet(a);
+    destroyTriplet(&a);
 }
