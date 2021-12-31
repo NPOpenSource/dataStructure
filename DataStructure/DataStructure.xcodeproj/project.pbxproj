@@ -12,6 +12,7 @@
 		2454155F277DA1BB00DFC18E /* LineList.m in Sources */ = {isa = PBXBuildFile; fileRef = 2454155E277DA1BB00DFC18E /* LineList.m */; };
 		24807EBD277DD4F800DEF80A /* LineSqList.m in Sources */ = {isa = PBXBuildFile; fileRef = 24807EBC277DD4F800DEF80A /* LineSqList.m */; };
 		24D1953B277EAF8E0084743B /* LinkList.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D1953A277EAF8E0084743B /* LinkList.m */; };
+		24F70C6F277EEBE70010312C /* SLinkList.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F70C6E277EEBE70010312C /* SLinkList.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -44,6 +45,7 @@
 		24807EBC277DD4F800DEF80A /* LineSqList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LineSqList.m; sourceTree = "<group>"; };
 		24D19537277DD7AD0084743B /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
 		24D1953A277EAF8E0084743B /* LinkList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LinkList.m; sourceTree = "<group>"; };
+		24F70C6E277EEBE70010312C /* SLinkList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLinkList.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				2454155E277DA1BB00DFC18E /* LineList.m */,
 				24807EBC277DD4F800DEF80A /* LineSqList.m */,
 				24D1953A277EAF8E0084743B /* LinkList.m */,
+				24F70C6E277EEBE70010312C /* SLinkList.m */,
 			);
 			path = "第二章线性表";
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24541551277D594600DFC18E /* Triplet.m in Sources */,
+				24F70C6F277EEBE70010312C /* SLinkList.m in Sources */,
 				24807EBD277DD4F800DEF80A /* LineSqList.m in Sources */,
 				2454155F277DA1BB00DFC18E /* LineList.m in Sources */,
 				2454153C277C813400DFC18E /* main.m in Sources */,

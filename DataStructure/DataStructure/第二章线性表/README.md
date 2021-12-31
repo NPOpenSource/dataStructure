@@ -1,3 +1,5 @@
+
+
 #  第二章线性表
 
 线性结构的特点. 线性结构的特点是:在数据元素的非空有限集中
@@ -164,7 +166,7 @@ static void beforeMain(void)  {
 }
 ```
 
-#### 2.1 算法
+#####算法 2.1 
 
 ![2-3](./assets/2-4.png)
 
@@ -201,8 +203,8 @@ static void beforeMergeMain(void) {
 
 ```
 
+#####  算法 2.2
 
-#### 2.2 算法
 上述算法的时间复杂度 是 $ O(ListLength(LA)+ListLength(LB)) $ 
 
 ### 2.2 线性表的顺序表示和实现
@@ -254,9 +256,7 @@ Status InitList_Sq(Sqlist *l) {
 }
 ```
 
-
-
-#### 2.3 算法
+##### 算法2.3
 
 线性表的插入特性如下
 
@@ -359,7 +359,7 @@ static void beforeSqMain(void) {
 }
 ```
 
-####  算法2.4
+##### 算法2.4
 
 ![WeChatb68b58293f5339fe21525db60151fb0f](assets/WeChatb68b58293f5339fe21525db60151fb0f.png)
 
@@ -411,9 +411,7 @@ static void beforedeSqMain(void) {
 
 ```
 
-
-
-#### 算法 2.5 
+#####  算法 2.5 
 
 顺序结构的线性表中某个位置上的插入或者删除一个数据元素时,其时间主要耗费在移动元素上.移动元素的个数取决于插入或者删除元素的位置
 
@@ -462,9 +460,7 @@ static void beforeQuerySqMain(void) {
 }
 ```
 
-
-
-#### 算法2.6 
+##### 算法2.6 
 
 顺序表合并算法
 
@@ -532,7 +528,7 @@ static void beforemergeSqMain(void) {
 }
 ```
 
-#### 算法 2.7
+##### 算法 2.7
 
 >  线性表表示的集合并进行集合的各种运算,应该对表中的元素进行排序.
 
@@ -593,3 +589,325 @@ Status Get_Elem_L(LinkList L,int i, int *e) {
 ```
 
 ##### 算法 2.8
+
+链表结点的插入
+
+![WeChat9258251a41cd3acbbb41215a16c2dcdb](assets/WeChat9258251a41cd3acbbb41215a16c2dcdb.png)
+
+链表的删除
+
+![WeChatbd1450c9c635b6a7a3fdd5e4ac7156f9](assets/WeChatbd1450c9c635b6a7a3fdd5e4ac7156f9.png)
+
+实现代码
+
+```c
+Status ListInsert_L(LinkList *l, int i, int e) {
+    LinkList p = *l;
+    int j = 0;
+    while (p && j<i-1) {
+        p = p->next;
+        j++;
+    }
+    if (!p || j>i-1) {
+        return ERROR;
+    }
+    
+    LinkList s = (LinkList)malloc(sizeof(LNode));
+    s->data = e;
+    s->next = p->next;
+    p->next = s;
+    return OK;
+}
+```
+
+##### 算法  2.9
+
+```c
+
+Status ListDelete_L(LinkList *l, int i, int *e) {
+    LinkList p = *l;
+    int j = 0;
+    while (p && j<i-1) {
+        p = p->next;
+        j++;
+    }
+    if (!p || j>i-1) {
+        return ERROR;
+    }
+    
+    LinkList q = p->next;
+    *e = q->data;
+    p->next = q->next;
+    free(q);
+    return OK;
+}
+```
+
+##### 算法 2.10
+
+```
+void CreateList_L(LinkList *l, int n) {
+    LinkList s = (LinkList)malloc(sizeof(LNode));
+    s->next=NULL;
+    for (int i=n; i>0; i--) {
+        LinkList p = (LinkList)malloc(sizeof(LNode));
+        p->data = i;
+        p->next = s->next;
+        s->next = p;
+    }
+    *l = s;
+}
+
+```
+
+测试代码
+
+```c
+__attribute__((constructor))
+static void beforeLinkInsertMain(void) {
+    LinkList L;
+    CreateList_L(&L, 10);
+    ListInsert_L(&L, 3, 10);
+    int e ;
+    ListDelete_L(&L, 5,&e);
+    printf("%d\n",e);
+    LinkList next = L->next;
+    while (next) {
+        printf("%d\n",next->data);
+        next = next->next;
+    }
+}
+
+```
+
+
+
+##### 算法 2.11
+
+有序链表合并
+
+```c
+void MergeList_L(LinkList *la, LinkList *lb, LinkList *lc) {
+    LinkList pa = *la;
+    pa = pa->next;
+    LinkList pb = *lb;
+    pb = pb->next;
+    LinkList pc = *la;
+    *lc = pc;
+    
+    while (pa && pb) {
+        if (pa->data<=pb->data) {
+            pc->next = pa;
+            pc=pa;
+            pa = pa->next;
+        } else {
+            pc->next = pb;
+            pc = pb;
+            pb = pb->next;
+        }
+    }
+    
+    pc->next = pa?pa:pb;
+    free(*lb);
+}
+
+```
+
+测试代码
+
+```c
+__attribute__((constructor))
+static void beforeMergeLinkInsertMain(void) {
+    LinkList L;
+    CreateList_L(&L, 10);
+    
+    LinkList L1;
+    CreateList_L(&L1, 10);
+
+    LinkList L2;
+    MergeList_L(&L, &L1, &L2);
+    LinkList next = L2->next;
+    while (next) {
+        printf("%d\n",next->data);
+        next = next->next;
+    }
+}
+```
+
+
+
+##### 算法 2.12
+
+用数组来描述线性链表.
+
+![WeChat39905283b74589d9de9f237b47800b1a](assets/WeChat39905283b74589d9de9f237b47800b1a.png)
+
+
+
+注意,结构体定义 `SlinkList[MAXSIZE]`
+
+>  这种描述方法便于在`不设指针`类型的高级程序语言设计中使用链表结构
+
+这种链表叫做静态链表. 不同于指针链表
+
+![image-20211231154028785](assets/image-20211231154028785.png)
+
+![WeChat1a930864284794cdedd59c4be4c07667](assets/WeChat1a930864284794cdedd59c4be4c07667.png)
+
+```c
+int LocateElem_SL(SLinkList s,int e) {
+    int i = s[0].cur;
+    while (i && s[i].data != e) {
+        i=s[i].cur;
+    }
+    return i;
+}
+```
+
+
+
+##### 算法 2.13
+
+初始化 静态链表
+
+![WeChatfc9833ae1762dda6327b93daca69e508](assets/WeChatfc9833ae1762dda6327b93daca69e508.png)
+
+```c
+void InitSpace_SL(SLinkList *space) {
+    for (int i=0; i<MAXSIZE-1; i++) {
+        space[i]->cur = i+1;
+    }
+    space[MAXSIZE-1]->cur=0;
+}
+```
+
+
+
+##### 算法 2.14
+
+![WeChat07642bdb604fc15029616fb2de1898c3](assets/WeChat07642bdb604fc15029616fb2de1898c3.png)
+
+```c
+///相当于从未使用空间中取出一个结点.
+int Malloc_SL(SLinkList *space) {
+    int i =space[0]->cur;
+    if (space[0]->cur) {
+        space[0]->cur = space[i]->cur;
+    }
+    return i;
+}
+```
+
+##### 算法 2.15
+
+![WeChat71b9c4c2e98d77af3b1f5f7ae4080a47](assets/WeChat71b9c4c2e98d77af3b1f5f7ae4080a47.png)
+
+```c
+///space 是未使用空间,因此释放一个结点,相当于把结点放入释放空间的链表中
+void Free_SL(SLinkList *space,int k) {
+    space[k]->cur = space[0]->cur;
+    space[0]->cur = k;
+}
+
+```
+
+
+
+##### 算法 2.16
+
+![WeChat8983b5e8eddd0c0fdcd88089d5d96cb3](assets/WeChat8983b5e8eddd0c0fdcd88089d5d96cb3.png)
+
+```c
+
+void differentce(SLinkList *space ,int *s) {
+    
+    InitSpace_SL(space);
+    *s=Malloc_SL(space);
+    int r = *s;
+    
+    int m = 5;
+    int n = 4;
+    for (int j=1; j<=m; j++) {
+        int i = Malloc_SL(space);
+        space[i]->data = j*2;
+        space[r]->cur = i;
+        r = i;
+    }
+    space[r]->cur = 0;
+    for (int j = 1; j<=n; j++) {
+        int b = random()%10;
+        printf("[input]%d\n",b);
+        //p是k的前一个结点
+        int p = *s;
+        int k = space[*s]->cur;
+        while (k!=space[r]->cur && space[k]->data != b) {
+            p = k;
+            k = space[k]->cur;
+        }
+        if (k == space[r]->cur) {
+            int i = Malloc_SL(space);
+            space[i]->data = b;
+            ///最后一个结点
+            space[i]->cur = space[r]->cur;
+            space[r]->cur = i;
+        } else {
+            space[p]->cur = space[k]->cur;
+            Free_SL(space, k);
+            if (r == k) {
+                r = p;
+            }
+        }
+    }
+}
+
+```
+
+
+
+测试代码
+
+```c
+__attribute__((constructor))
+static void beforeSLinkListMain(void) {
+    SLinkList list[MAXSIZE];
+    int e;
+    differentce(list,&e);
+    
+    int next =list[e]->cur;
+    while (next) {
+        printf("%d\t",list[next]->data);
+        next = list[next]->cur;
+    }
+    printf("\n");
+}
+
+```
+
+
+
+> 这里备注下 InitSpace_SL 相当于分配`未使用空间` 是个链表
+>
+> Malloc_SL 相当于 从 `未分配空间`获取一个结点, 也就是说从 未分配空间中删除一个未使用的节点
+>
+> Free_SL 相当于 向 `未分配空间` 中添加一个结点 .   
+>
+> `InitSpace_SL` `Malloc_SL ` `Free_SL `相当于未使用空间链表
+
+
+
+##### 算法 2.17
+
+##### ![WeChat14b9fa2f90bb1c48b848c7f48f67a6da](assets/WeChat14b9fa2f90bb1c48b848c7f48f67a6da.png)
+
+
+
+ ### 2.3.2 循环链表
+
+
+
+
+
+
+
+
+
