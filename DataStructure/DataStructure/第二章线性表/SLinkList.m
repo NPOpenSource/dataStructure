@@ -87,7 +87,7 @@ void differentce(SLinkList *space ,int *s) {
 }
 
 
-__attribute__((constructor))
+//__attribute__((constructor))
 static void beforeSLinkListMain(void) {
     SLinkList list[MAXSIZE];
     int e;

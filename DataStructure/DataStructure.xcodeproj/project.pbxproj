@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		244C7D052783D9F700918A18 /* DoLinkList.m in Sources */ = {isa = PBXBuildFile; fileRef = 244C7D042783D9F700918A18 /* DoLinkList.m */; };
 		2454153C277C813400DFC18E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2454153B277C813400DFC18E /* main.m */; };
 		24541551277D594600DFC18E /* Triplet.m in Sources */ = {isa = PBXBuildFile; fileRef = 24541550277D594600DFC18E /* Triplet.m */; };
 		2454155F277DA1BB00DFC18E /* LineList.m in Sources */ = {isa = PBXBuildFile; fileRef = 2454155E277DA1BB00DFC18E /* LineList.m */; };
@@ -28,6 +29,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		244C7D042783D9F700918A18 /* DoLinkList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DoLinkList.m; sourceTree = "<group>"; };
 		24541538277C813400DFC18E /* DataStructure */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DataStructure; sourceTree = BUILT_PRODUCTS_DIR; };
 		2454153B277C813400DFC18E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		24541543277C813A00DFC18E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				24807EBC277DD4F800DEF80A /* LineSqList.m */,
 				24D1953A277EAF8E0084743B /* LinkList.m */,
 				24F70C6E277EEBE70010312C /* SLinkList.m */,
+				244C7D042783D9F700918A18 /* DoLinkList.m */,
 			);
 			path = "第二章线性表";
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 			files = (
 				24541551277D594600DFC18E /* Triplet.m in Sources */,
 				24F70C6F277EEBE70010312C /* SLinkList.m in Sources */,
+				244C7D052783D9F700918A18 /* DoLinkList.m in Sources */,
 				24807EBD277DD4F800DEF80A /* LineSqList.m in Sources */,
 				2454155F277DA1BB00DFC18E /* LineList.m in Sources */,
 				2454153C277C813400DFC18E /* main.m in Sources */,
@@ -255,6 +259,8 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
 			};
 			name = Debug;
 		};
@@ -307,6 +313,8 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
 			};
 			name = Release;
 		};
@@ -315,6 +323,8 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRIP_INSTALLED_PRODUCT = YES;
 			};
 			name = Debug;
 		};
@@ -323,6 +333,8 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRIP_INSTALLED_PRODUCT = YES;
 			};
 			name = Release;
 		};

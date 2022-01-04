@@ -900,14 +900,140 @@ static void beforeSLinkListMain(void) {
 ##### ![WeChat14b9fa2f90bb1c48b848c7f48f67a6da](assets/WeChat14b9fa2f90bb1c48b848c7f48f67a6da.png)
 
 
-
  ### 2.3.2 循环链表
 
+循环链表的特点`表中的最后一个结点的指针域指向头结点,整个链表形成一个环`.因此表中的任一个结点出发均可找到表中的其他结点.
+
+![image-20220104092101112](assets/image-20220104092101112.png)
+
+### 2.3.3 双向链表
+
+![image-20220104092440762](assets/image-20220104092440762.png)
+
+```c
+///双向链表
+typedef struct DuLNode {
+    int data;
+    struct DuLNode *proor;
+    struct DuLNode *next;
+}DuLNode, * DuLinkList;
+```
+
+双向列表在插入和删除有所不同,见图
+
+![WeChat9f7b49ad361f2d294e2e0d69364549fa](assets/WeChat9f7b49ad361f2d294e2e0d69364549fa.png)
+
+```c
+///双向链表
+typedef struct DuLNode {
+    int data;
+    struct DuLNode *prior;
+    struct DuLNode *next;
+}DuLNode, * DuLinkList;
+
+void CreateDuLList_L(DuLinkList *l, int n) {
+    DuLinkList s = (DuLinkList)malloc(sizeof(DuLNode));
+    *l = s;
+    s->next = s;
+    s->prior = s;
+    for (int i=n; i>0; i--) {
+        DuLinkList p = (DuLinkList)malloc(sizeof(DuLNode));
+        p->data = i;
+        p->next = s->next;
+        p->prior = s;
+        s->next->prior = p;
+        s->next = p;
+    }
+}
+
+DuLinkList GetElemP_DuL(DuLinkList l,int i) {
+    DuLinkList p=l;
+    int j = 1;
+    while (p->next != l && j<i) {
+        p=p->next;
+        j++;
+    }
+    if (j>i) {
+        return NULL;
+    }
+    return p;
+}
+
+Status ListInsert_DuL(DuLinkList *l,int i,int e) {
+    DuLinkList p = NULL;
+    if (!(p = GetElemP_DuL(*l, i))) {
+        return ERROR;
+    }
+    DuLinkList s = (DuLinkList)malloc(sizeof(DuLNode));
+    if (!s) {
+        return ERROR;
+    }
+    s->data = e;
+    s->prior = p->prior;
+    p->prior->next = s;
+    s->next = p;
+    p->prior = s;
+    return OK;
+}
+
+```
+
+##### 算法 2.18
+
+```c
+Status ListDelete_DuL(DuLinkList *l, int i, int *e) {
+    DuLinkList p = NULL;
+    if (!(p = GetElemP_DuL(*l, i))) {
+        return ERROR;
+    }
+    *e = p->data;
+    p->prior->next = p->next;
+    p->next->prior = p->prior;
+    free(p);
+    return OK;
+}
+
+__attribute__((constructor))
+static void beforeDuLinkListMain(void) {
+    DuLinkList list;
+    CreateDuLList_L(&list, 5);
+    DuLinkList next = list->next;
+    
+    while (next!=list) {
+        printf("%d\n",next->data);
+        next = next->next;
+    }
+
+    ListInsert_DuL(&list, 1, 19);
+    next = list->next;
+    while (next!=list) {
+        printf("%d\n",next->data);
+        next = next->next;
+    }
+    int e;
+    ListDelete_DuL(&list, 3, &e);
+    printf("%d\n",e);
+}
+
+```
+
+##### 算法2.19
+
+![image-20220104112004741](assets/image-20220104112004741.png)
+
+![image-20220104112018378](assets/image-20220104112018378.png)
+
+插入实现
+
+![image-20220104112053338](assets/image-20220104112053338.png)
 
 
 
+#####  算法 2.20
 
+![image-20220104112131923](assets/image-20220104112131923.png)
 
+### 2.4  一元多项式的表示和相加
 
-
+![image-20220104112301401](assets/image-20220104112301401.png)					
 
