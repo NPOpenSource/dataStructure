@@ -625,11 +625,214 @@ static void beforeExpressMain(void) {
 
 ##### 算法 3.5
 
-
-
-
-
 ### 3.4 队列
+
+#### 3.4.1 抽象数据类型队列的定义
+
+`队列`是一种`先进后出`的线性表.只允许在表的一端进行插入,在另一端进行删除.
+
+允许插入的叫`队尾`,允许删除的一端称为`队头`.
+
+![image-20220105160834051](assets/image-20220105160834051.png)
+
+抽象数据类型定义
+
+
+
+![WeChatbc71a0a9994bd58fbd3ccc69cdd7a08d](assets/WeChatbc71a0a9994bd58fbd3ccc69cdd7a08d.png)
+
+除了栈和队列之外,还有一种限定性数据结构是双端队列
+
+![image-20220105163350715](assets/image-20220105163350715.png)
+
+#### 3.4.2 链队列-队列的链式表示和实现
+
+用`链表` 表示的队列称为`链队列`
+
+![image-20220105163704747](assets/image-20220105163704747.png)
+
+![image-20220105164026295](assets/image-20220105164026295.png)
+
+![image-20220105164046113](assets/image-20220105164046113.png)
+
+```c
+#include <stdio.h>
+#include "UtilsHeader.h"
+
+typedef struct QNode {
+    int data;
+    struct QNode *next;
+}QNode, *QueuePtr;
+
+typedef struct {
+    QueuePtr front;
+    QueuePtr rear;
+}LinkQueue;
+
+Status InitQueue(LinkQueue *Q) {
+    Q->front =(QueuePtr)malloc(sizeof(QNode));
+    if (!Q->front) {
+        exit(OVERFLOW);
+    }
+    Q->rear = Q->front;
+    Q->front->next = NULL;
+    return OK;
+}
+//
+Status DestroyQueue(LinkQueue *Q) {
+    while (Q->front) {
+        Q->rear = Q->front->next;
+        free(Q->front);
+        Q->front = Q->rear;
+    }
+    return OK;
+}
+
+Status EnQueue(LinkQueue *Q,int e) {
+    QueuePtr p=(QueuePtr)malloc(sizeof(QNode));
+    if (!p) {
+        exit(OVERFLOW);
+    }
+    p->data  = e;
+    p->next = NULL;
+    Q->rear->next = p;
+    Q->rear = p;
+    return OK;
+}
+//
+Status DeQueue(LinkQueue *Q,int *e) {
+    if (Q->front == Q->rear) {
+        return ERROR;
+    }
+    QueuePtr p = Q->front->next;
+    *e = p->data;
+    Q->front->next = p->next;
+    if (Q->rear == p) {
+        Q->rear = Q->front;
+    }
+    free(p);
+    return OK;
+}
+
+__attribute__((constructor))
+static void beforeQueueMain(void) {
+    LinkQueue queue;
+    InitQueue(&queue);
+    for (int i=0; i<10; i++) {
+        EnQueue(&queue, i);
+    }
+ 
+    QueuePtr start = queue.front->next;
+    while (start) {
+        printf("%d\t",start->data);
+        start = start->next;
+    }
+    int e;
+    for (int i=0; i<5; i++) {
+        DeQueue(&queue, &e);
+    }
+    start = queue.front->next;
+    printf("\n");
+    while (start) {
+        printf("%d\t",start->data);
+        start = start->next;
+    }
+}
+```
+
+
+
+#### 3.4.3 循环队列--队列的顺序表示和实现
+
+循环队列属于`顺序存储结构`
+
+![image-20220105171001565](assets/image-20220105171001565.png)
+
+
+
+![image-20220105171101760](assets/image-20220105171101760.png)
+
+![image-20220105171336596](assets/image-20220105171336596.png)
+
+
+
+代码实现
+
+```c
+#include <stdio.h>
+#include "UtilsHeader.h"
+
+#define MAXQUSZIE 100
+typedef struct {
+    int *base;
+    int front;
+    int real;
+}SqQueue;
+
+Status SqInitQueue(SqQueue *Q) {
+    Q->base = (int *)malloc(MAXQUSZIE*sizeof(int));
+    if (!Q->base) {
+        exit(OVERFLOW);
+    }
+    Q->front = 0;
+    Q->real = Q->front;
+    return OK;
+}
+
+Status SqInQueue(SqQueue *Q,int e) {
+    if ((Q->real+1)%MAXQUSZIE==Q->front) {
+        return ERROR;
+    }
+    Q->base[Q->real]=e;
+    Q->real = (Q->real+1)%MAXQUSZIE;
+    return OK;
+}
+
+Status SqDeQueue(SqQueue *Q,int *e) {
+    if (Q->front == Q->real) {
+        return ERROR;
+    }
+    *e = Q->base[Q->front];
+    Q->front = (Q->front+1)%MAXQUSZIE;
+    return OK;
+}
+
+Status SqQueueLength(SqQueue Q) {
+    return (Q.real-Q.front+MAXQUSZIE)%MAXQUSZIE;
+}
+
+__attribute__((constructor))
+static void beforeQueueMain(void) {
+    SqQueue queue;
+    SqInitQueue(&queue);
+    for (int i=0; i<10; i++) {
+        SqInQueue(&queue, i);
+    }
+
+    int start = queue.front;
+    int end = queue.real;
+    while (start!=end) {
+        printf("%d\t",queue.base[start]);
+        start = (start+1)%MAXQUSZIE;
+    }
+    int e;
+    for (int i=0; i<5; i++) {
+        SqDeQueue(&queue, &e);
+    }
+    start = queue.front;
+    end = queue.real;
+    printf("\n");
+    while (start!=end) {
+        printf("%d\t",queue.base[start]);
+        start = (start+1)%MAXQUSZIE;
+    }
+    printf("\n%d",SqQueueLength(queue));
+    printf("\n");
+}
+
+```
+
+
 
 
 

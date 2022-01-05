@@ -17,7 +17,7 @@ void hanoi(int n,char x,char y,char z) {
 }
 
 
-__attribute__((constructor))
+//__attribute__((constructor))
 static void beforeExpressMain(void) {
     hanoi(3,1,2,3);
 }
