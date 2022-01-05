@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		244C7D052783D9F700918A18 /* DoLinkList.m in Sources */ = {isa = PBXBuildFile; fileRef = 244C7D042783D9F700918A18 /* DoLinkList.m */; };
+		244C7D1527841FF700918A18 /* SqStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 244C7D1427841FF700918A18 /* SqStack.m */; };
+		244C7D1B27843D4300918A18 /* MazeStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 244C7D1A27843D4300918A18 /* MazeStack.m */; };
+		244C7D21278533BF00918A18 /* EvaluateExpressionStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 244C7D20278533BF00918A18 /* EvaluateExpressionStack.m */; };
+		244C7D272785845F00918A18 /* Hanoi.m in Sources */ = {isa = PBXBuildFile; fileRef = 244C7D262785845F00918A18 /* Hanoi.m */; };
 		2454153C277C813400DFC18E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2454153B277C813400DFC18E /* main.m */; };
 		24541551277D594600DFC18E /* Triplet.m in Sources */ = {isa = PBXBuildFile; fileRef = 24541550277D594600DFC18E /* Triplet.m */; };
 		2454155F277DA1BB00DFC18E /* LineList.m in Sources */ = {isa = PBXBuildFile; fileRef = 2454155E277DA1BB00DFC18E /* LineList.m */; };
@@ -30,6 +34,12 @@
 
 /* Begin PBXFileReference section */
 		244C7D042783D9F700918A18 /* DoLinkList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DoLinkList.m; sourceTree = "<group>"; };
+		244C7D1127841B4C00918A18 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		244C7D1227841CD800918A18 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
+		244C7D1427841FF700918A18 /* SqStack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SqStack.m; sourceTree = "<group>"; };
+		244C7D1A27843D4300918A18 /* MazeStack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MazeStack.m; sourceTree = "<group>"; };
+		244C7D20278533BF00918A18 /* EvaluateExpressionStack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvaluateExpressionStack.m; sourceTree = "<group>"; };
+		244C7D262785845F00918A18 /* Hanoi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Hanoi.m; sourceTree = "<group>"; };
 		24541538277C813400DFC18E /* DataStructure */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DataStructure; sourceTree = BUILT_PRODUCTS_DIR; };
 		2454153B277C813400DFC18E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		24541543277C813A00DFC18E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -61,6 +71,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		244C7D1027841B2300918A18 /* 第三章栈和队列 */ = {
+			isa = PBXGroup;
+			children = (
+				244C7D1127841B4C00918A18 /* README.md */,
+				244C7D1427841FF700918A18 /* SqStack.m */,
+				244C7D1227841CD800918A18 /* assets */,
+				244C7D1A27843D4300918A18 /* MazeStack.m */,
+				244C7D20278533BF00918A18 /* EvaluateExpressionStack.m */,
+				244C7D262785845F00918A18 /* Hanoi.m */,
+			);
+			path = "第三章栈和队列";
+			sourceTree = "<group>";
+		};
 		2454152F277C813400DFC18E = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +105,7 @@
 		2454153A277C813400DFC18E /* DataStructure */ = {
 			isa = PBXGroup;
 			children = (
+				244C7D1027841B2300918A18 /* 第三章栈和队列 */,
 				24541559277D8F4500DFC18E /* 第二章线性表 */,
 				24541545277C816B00DFC18E /* 第一章绪论 */,
 				2454153B277C813400DFC18E /* main.m */,
@@ -191,11 +215,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				24541551277D594600DFC18E /* Triplet.m in Sources */,
+				244C7D21278533BF00918A18 /* EvaluateExpressionStack.m in Sources */,
 				24F70C6F277EEBE70010312C /* SLinkList.m in Sources */,
+				244C7D1B27843D4300918A18 /* MazeStack.m in Sources */,
 				244C7D052783D9F700918A18 /* DoLinkList.m in Sources */,
 				24807EBD277DD4F800DEF80A /* LineSqList.m in Sources */,
 				2454155F277DA1BB00DFC18E /* LineList.m in Sources */,
+				244C7D272785845F00918A18 /* Hanoi.m in Sources */,
 				2454153C277C813400DFC18E /* main.m in Sources */,
+				244C7D1527841FF700918A18 /* SqStack.m in Sources */,
 				24D1953B277EAF8E0084743B /* LinkList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
