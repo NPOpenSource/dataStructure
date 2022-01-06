@@ -37,6 +37,7 @@
 /* Begin PBXFileReference section */
 		2411CBF22785918200582BAC /* QueueDefine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QueueDefine.m; sourceTree = "<group>"; };
 		2411CBF7278598E700582BAC /* SqQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SqQueue.m; sourceTree = "<group>"; };
+		2411CBFF2785AE5400582BAC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		244C7D042783D9F700918A18 /* DoLinkList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DoLinkList.m; sourceTree = "<group>"; };
 		244C7D1127841B4C00918A18 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		244C7D1227841CD800918A18 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
@@ -75,6 +76,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2411CBFE2785AE3200582BAC /* 第四章串 */ = {
+			isa = PBXGroup;
+			children = (
+				2411CBFF2785AE5400582BAC /* README.md */,
+			);
+			path = "第四章串";
+			sourceTree = "<group>";
+		};
 		244C7D1027841B2300918A18 /* 第三章栈和队列 */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +120,7 @@
 		2454153A277C813400DFC18E /* DataStructure */ = {
 			isa = PBXGroup;
 			children = (
+				2411CBFE2785AE3200582BAC /* 第四章串 */,
 				244C7D1027841B2300918A18 /* 第三章栈和队列 */,
 				24541559277D8F4500DFC18E /* 第二章线性表 */,
 				24541545277C816B00DFC18E /* 第一章绪论 */,
